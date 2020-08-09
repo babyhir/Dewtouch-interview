@@ -64,3 +64,65 @@ $(document).ready(function(){
 	});
 
 		$(".showDialog").click(function(){ var id = $(this).data('id'); $("#"+id).dialog('open'); });
+		
+		
+		
+		
+Question 3 - Input field Text Store
+
+
+1. Navigate to q1.ctp
+
+2. To use the [+] ADD NEW row button, we require to  call a button functon to add an iterated row (insertRow()).
+
+	var items = 0;
+
+$(document).ready(function(){
+
+	$("#add_item_button").click(function(){
+
+		items++;
+		var html = "<tr>";
+		html += "<td>" + items + "</td>";
+
+		html += "<td><input name='data[][description]'></td>";
+		html += "<td><input name='data[][quantity]'></td>";
+		html += "<td><input name='data[][unit_price]'></td>";
+
+		html += "</tr>";
+		
+		document.getElementById("tbody").insertRow().innerHTML = html;
+	
+		});
+});
+
+
+
+3. To insert into DB "input" include the following on top of same file.
+
+<form method="POST" action="">
+				<?php
+
+					if (isset($_POST["submit"]))
+					{
+						$conn = mysqli_connect("localhost","root","","db");
+						$description = $_POST["description"];
+
+						$sql = "INSERT INTO input VALUES ('$description')";
+						mysqli_query($conn,$sql);
+						$descriptionId = mysqli_insert_id($conn);
+
+						for($a = 0;$a < count($_POST['data[][description]']);$a++)
+						{
+							$sql = "INSERT INTO input (description, quantity, unitprice)
+							VALUES('$descriptionId','".$_POST["data[][description"][$a]."','".$_POST["data[][quantity]"]								[$a]."','".$_POST["data[][unit_price]"][$a]."')";
+
+							mysqli_query($conn,$sql);
+						}
+
+
+						echo "<p> Input is added? </p>";
+
+					}
+				?>
+						}
