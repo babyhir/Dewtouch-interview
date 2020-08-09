@@ -8,8 +8,6 @@ Question 1 - Record List Optimize
 2. Add following code for time complete check
 
 <?php
-
-
 $time_start = microtime(TRUE);
 $time_end = microtime(true);
 $time = $time_end - $time_start;
@@ -30,3 +28,39 @@ OPTIMIZE TABLE `records`
 
 7. If still experience slowness, convert table's storage engine from InnoDB to MyISAM (small data footprint).
 ALTER TABLE 'records' ENGINE=MYISAM
+
+
+
+
+
+
+
+Question 2 - Pop up replace to Hover & output radio button value on new page.
+
+1. Navigate to app/view/home/q1.ctp
+2. Replace the following code inside style existing tag for .showDialog:hover
+
+.showDialog:hover{
+   visibility: hidden;
+  width: 120px;
+  background-color: grey;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  visibility: visible;
+  position: absolute;
+  z-index: 1;
+}
+
+3. To omit onclick for popup info, comment out or remove following code - 
+
+$(document).ready(function(){
+	$(".dialog").dialog({
+		autoOpen: false,
+		width: '1500px',
+		modal: true,
+		dialogClass: 'ui-dialog-blue'
+	});
+
+		$(".showDialog").click(function(){ var id = $(this).data('id'); $("#"+id).dialog('open'); });
