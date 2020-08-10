@@ -2,6 +2,9 @@
 
 Workstation
 
+Run with XAMP, apache, mysql
+PHP 7.0.4 && PHP 7.2
+
 Question 1 - Record List Optimize
 
 1: Navigate to Record display page / index.ctp
