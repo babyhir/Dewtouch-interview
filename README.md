@@ -163,4 +163,105 @@ Question 4 - File Upload (index.ctp)
 
 
 
-#4. Navigate to and select FileUpload.csv inside webroot/files
+Question 4 - File Upload (index.ctp)
+
+1. Navigate to index.ctp
+2. Setup FileReady using jquery adding
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+3. Add following code to onClick .ready(function()). This will created rows for each lines found(\n).
+
+                var rdr = new FileReader();
+                rdr.onload = function (e) {
+                  //get the rows into an array
+                  var therows = e.target.result.split("\n");
+                  //loop through the rows
+                  var d = new Date();
+				  //var set_time = d.getTime();
+				  var final_time = d.toLocaleString()
+
+                  for (var row = 0; row < therows.length; row++ ) {
+                    //build a new table row
+                    //get the columns into an array
+                    var columns = therows[row].split(",");
+                    //get number of columns
+                    var colcount=columns.length;
+
+
+                    var newrow = "<tr><td>"+row+"</td><td>"+columns[0]+"</td><td>"+columns[1]+"</td><td>"+final_time+"</td></tr>";
+
+                   
+					$('#tableMain').append(newrow);	
+
+
+
+4. Navigate to and select FileUpload.csv inside webroot/filesf
+fffff
+
+
+
+Question 4 - File Upload (index.ctp)
+
+1. Navigate to index.ctp
+2. Setup FileReady using jquery adding
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+3. Add following code to onClick .ready(function()). This will created rows for each lines found(\n).
+
+                var rdr = new FileReader();
+                rdr.onload = function (e) {
+                  //get the rows into an array
+                  var therows = e.target.result.split("\n");
+                  //loop through the rows
+                  var d = new Date();
+				  //var set_time = d.getTime();
+				  var final_time = d.toLocaleString()
+
+                  for (var row = 0; row < therows.length; row++ ) {
+                    //build a new table row
+                    //get the columns into an array
+                    var columns = therows[row].split(",");
+                    //get number of columns
+                    var colcount=columns.length;
+
+
+                    var newrow = "<tr><td>"+row+"</td><td>"+columns[0]+"</td><td>"+columns[1]+"</td><td>"+final_time+"</td></tr>";
+
+                   
+					$('#tableMain').append(newrow);	
+
+
+
+
+Question 4 - File Upload (index.ctp)
+
+1. Navigate to index.ctp
+2. Setup FileReady using jquery adding
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+3. Add following code to onClick .ready(function()). This will created rows for each lines found(\n).
+
+
+                var rdr = new FileReader();
+                rdr.onload = function (e) {
+                  //get the rows into an array
+                  var therows = e.target.result.split("\n");
+                  //loop through the rows
+                  var d = new Date();
+				  //var set_time = d.getTime();
+				  var final_time = d.toLocaleString()
+				  
+		for (var row = 0; row < therows.length; row++ ) {
+                    //build a new table row
+                    //get the columns into an array
+                    var columns = therows[row].split(",");
+                    //get number of columns
+                    var colcount=columns.length;
+
+
+                    var newrow = "<tr><td>"+row+"</td><td>"+columns[0]+"</td><td>"+columns[1]+"</td><td>"+final_time+"</td></tr>";
+
+                   
+					$('#tableMain').append(newrow);
+
+4. Navigate to and select FileUpload.csv inside webroot/files
