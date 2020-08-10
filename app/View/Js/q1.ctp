@@ -100,7 +100,7 @@ Your browser does not support the video tag.
 
 
 
-	var items = 0;
+	var items = 1;
 
 $(document).ready(function(){
 
